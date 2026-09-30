@@ -1,0 +1,86 @@
+.popup-content{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: rgba(0,0,0,.3);
+  /* transform: scale(0); */
+  z-index: 9999;
+}
+.popup-content .model{
+  height: 400px;
+  max-width: 350px;
+  margin: 0 10px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.popup-content .model h3{
+  color: #333;
+  font-size: 25px;
+  font-family: 'Ubuntu', sans-serif;
+}
+.popup-content .model p{
+  color:#666;
+  margin: 20px 0;
+  text-align: justify;
+  text-transform: none;
+}
+.popup-content .model button{
+  height: 35px;
+  width: 125px;
+  background: #333;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  font-size: 17px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+}
+.popup-content .model button:hover{
+  opacity: .8;
+}
+.popup-content .model .fa-times{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  background: gray;
+  border-radius: 50%;
+  padding: 5px 7px;
+  transition: all .2s linear;
+}
+.popup-content .model .fa-times:hover{
+  box-sizing: 110%;
+  transform: rotate(90deg);
+  background: #fff;
+  color: #333;
+  font-size: 25px;
+}
+.popup-content .model img{
+  height: 150px;
+  width: 150px;
+  margin: 10px 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid crimson;
+  transition: all 0.3s ease; 
+}
+.popup-content .model p{
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+}

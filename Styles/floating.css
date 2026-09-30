@@ -1,0 +1,145 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.floating-container{
+  background-color: transparent;
+  position: absolute;
+  height: 40%;
+  width: 20%;
+  /* top: 110px; */
+  top: 20%;
+  right: 0px;
+  z-index: 2;
+}
+.floating-container .graph-container{
+  /* background-color: rgb(216, 185, 9); */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  justify-content: center;
+  position: fixed;
+  min-height: 250px;
+  min-width: 270px;
+  /* height: 250px;
+  width: 270px; 
+  right: -300px; */
+  height: 20vw;
+  width: calc(18.51vw + 20px);
+  right: min(calc(-18.51vw - 50px), calc(-270px - 30px));
+  transition: right 0.5s ease-in-out;
+  z-index: 9999;
+}
+.graph-container .graph{
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.floating-container .button{
+  cursor: pointer;
+  position: fixed;
+  min-width: 56px;
+  min-height: 140px;
+  height: 140px;
+  /* height: 18.23vh; */
+  /* width: 56px;
+  height: 140px; */
+  top: 26%;
+  right: -15px;
+  border-radius: 13px;
+  background: #3d3a4e; 
+  background-size: 400%;
+  transition: all 0.5s ease;
+  border: none;
+}
+.floating-container .button:hover::before {
+  transform: scaleX(1);
+}
+
+.floating-container .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  /* left: 0; */
+  right: 0;
+  transform: scaleX(0);
+  /* transform-origin: 0 50%; */
+  transform-origin: 100% 50%;
+  width: 100%;
+  height: 100%;
+  /* height: inherit; */
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgb(231, 0, 0) 10.8%,
+    rgba(204, 68, 34, 0.897) 94.3%
+  );
+  transition: all 0.475s;
+}
+.floating-container .button .textFloating{
+  position: absolute;
+  transform: rotate(-90deg);
+  right: -19px;
+  top: 45%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 650;
+  font-size: 14px;
+  min-width: 110px;
+  text-align: center;
+  color: white;
+  letter-spacing: 4px;
+}
+.floating-container .button:hover{
+  transform: scale(1.01);
+  transform: translateX(-7px);
+}
+.floating-container .button:active {
+  box-shadow: none;
+  transform: translateX(-16px);
+  transition: transform 0.5s ease;
+}
+.floating-container .graph-container .fa-times{
+  font-size: 20px;
+  border-radius: 40px;
+  color: white;
+  position: absolute;
+  background: rgba(128, 128, 128, 0.562);
+  border-radius: 50%;
+  padding: 5px 7px;
+  right: 22px;
+  top: 7px;
+  transition: all .2s linear;
+  z-index: 999;
+  cursor: pointer;
+}
+.floating-container .graph-container .fa-times:hover{
+  box-sizing: 105%;
+  transform: rotate(90deg);
+  background: #ffffff79;
+  color: #333;
+  font-size: 24px;
+}
+.hiddenGraph{
+  display: none;
+}
+.chartBox{
+  min-height: calc(400px * .6);
+  min-width: calc(400px * .6);
+  height: 17.81vw;
+  width: 17.81vw;
+}
+@media (width > 1200px){
+  .floating-container .graph-container{
+    height: 20vw;
+    width: calc(20vw + 20px);
+    right: min(calc(-20vw - 50px), calc(-270px - 30px));
+  }
+  .chartBox{
+    min-height: calc(400px * .7);
+    min-width: calc(400px * .7);
+    height: 19.5vw;
+    width: 19.5vw;
+  }
+}

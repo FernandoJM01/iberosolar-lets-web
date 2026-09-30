@@ -1,0 +1,294 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+:root{
+  --fs-pCard: clamp(14px, calc(.720vw + 1rem), 1.6rem);
+  --fs-spanCard: clamp(20px, calc(2.3vw + .3rem), 2.7rem);
+  --fs-info-temp: clamp(32px, calc(5.2vw + .5rem), 64px);
+  --fs-temp-desc: clamp(14px, calc(1.6vw + .3rem), 1.8rem);
+  --fs-icon: clamp(30px, calc(5vw + .1rem), 5rem);
+}
+.cards-container{
+  background-size: cover;
+  font-family: sans-serif;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+.cards-container .max-widthCard{
+  padding: 90px 60px 30px;
+}
+.container{
+  background: #21242d1c;
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, .2);
+  /* box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25); */
+  color: #fff;
+}
+.cards{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) .8fr 1.2fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "temperature temperature air        air        air        wind"
+                       "temperature temperature air        air        air        rainfall"
+                       "humidity    feels       irradiance irradiance irradiance pressure";
+  grid-gap: 12px;
+  height: 100%;
+} 
+.container.temperature{
+  border-radius: 16px;
+  /* background-color: gray; */
+  grid-column: temperature;
+  grid-row: temperature;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.temperature .info-weather{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.temperature .info-weather img{
+  width: 55%;
+  margin-bottom: 30px;
+}
+.info-weather .info-Temp{
+  font-size: var(--fs-info-temp);
+  line-height: 1;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.info-weather .description{
+  font-size: var(--fs-temp-desc);
+  margin-left: 4px;
+}
+.container.humidity{
+  border-radius: 16px; 
+  /* background-color: orange; */
+  grid-area: humidity;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.body-card{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100%;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  font: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 10px;
+}
+.info p{
+  font-size: var(--fs-pCard);
+}
+.card-text3 p{
+  font-size: var(--fs-spanCard)
+}
+.body-card i{
+  font-size: var(--fs-icon)
+}
+.pressure-icon{
+  width: var(--fs-icon);
+}
+
+.container.feels{
+  border-radius: 16px;
+  /* background-color: orangered; */
+  grid-column: feels;
+  grid-row: feels;
+  display: flex;
+  flex-direction: column;
+}
+.container.airquality{
+  border-radius: 16px;
+  /* background-color: rgb(51, 212, 2);  */
+  grid-area: air;
+  min-height: min-content; 
+  min-width: min-content; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.container.irradiance{
+  border-radius: 16px;
+  /* background-color: rgba(247, 247, 247, 0.973); */
+  background-color: rgba(255, 255, 255);
+  grid-area: irradiance;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.container.irradiance img#IrradianceGraph{
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+  transition: ease-in-out 0.4s;
+}
+.container.irradiance:hover img#IrradianceGraph{
+  transform: scale(1.2);
+}
+.container.rainfall{
+  border-radius: 16px;
+  /* background-color: greenyellow; */
+  grid-area: rainfall;
+  display: flex;
+  flex-direction: column;
+}
+.container.wind{
+  border-radius: 16px;
+  /* background-color: blueviolet; */
+  grid-area: wind;
+
+  display: flex;
+  flex-direction: column;
+} 
+.container.pressure{
+  border-radius: 16px;
+  /* background-color: rgb(226, 141, 43); */
+  grid-area: pressure;
+  display: flex;
+  flex-direction: column;
+
+}
+footer{
+  margin-top: -20px;
+}
+/* responsive media query start */
+@media(max-width: 1300px){
+  .cards-container .max-widthCard{
+    margin-left: 0px;
+  }
+}
+@media(max-width: 1104px){
+  .cards-container .max-widthCard{
+    margin-left: 0px;
+    padding: 90px 40px 20px 40px;
+  }
+ }
+
+@media(max-width: 960px){
+  .cards-container .max-widthCard{
+    padding: 90px 35px 20px;
+ }
+ /* .cards{
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: "temperature temperature temperature temperature air       air        air       air      air"
+                       "temperature temperature temperature temperature air       air        air       air      air"
+                       "feels       feels       feels       wind        wind      wind       humidity  humidity humidity"
+                       "irradiance  irradiance  irradiance  irradiance  irradiance  pressure   pressure  rainfall rainfall";
+ } */
+ .cards{
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: 1fr repeat(2, .46fr); 
+  grid-template-areas: "temperature temperature temperature temperature air       air        air       air      air"
+                       "feels       feels       feels       wind        wind      wind       humidity  humidity humidity"
+                       "irradiance  irradiance  irradiance  irradiance  irradiance  pressure   pressure  rainfall rainfall";
+ }
+}
+
+@media(max-width: 947px){
+  .max-width{
+    padding: 0 50px;
+  }
+  /* .pressure-icon{
+    height: 40px;
+    width: 40px;
+  } */
+}
+
+@media (max-width: 680px){
+  /* .cards{
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, .4fr);
+    grid-template-areas: "temperature temperature temperature temperature temperature air         air        air       air       air       air        air"
+                         "temperature temperature temperature temperature temperature air         air        air       air       air       air        air"
+                         "feels       feels       feels       feels       wind        wind        wind       wind      humidity  humidity  humidity   humidity"
+                         "irradiance  irradiance  irradiance  irradiance  irradiance  irradiance  pressure   pressure  pressure  rainfall  rainfall rainfall";                      
+   } */
+   .cards{
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr repeat(2, .47fr);
+    grid-template-areas: "temperature temperature temperature temperature temperature air         air        air       air       air       air        air"
+                         "feels       feels       feels       feels       wind        wind        wind       wind      humidity  humidity  humidity   humidity"
+                         "irradiance  irradiance  irradiance  irradiance  irradiance  irradiance  pressure   pressure  pressure  rainfall  rainfall rainfall";                      
+   }
+}
+
+@media (max-width: 550px){
+  /* .cards{
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);   
+    grid-template-areas: "temperature temperature temperature air       air         air       air      air"
+                         "temperature temperature temperature air       air         air       air      air"
+                         "feels       feels       feels       feels     wind         wind      wind     wind"
+                         "humidity    humidity     humidity   humidity  pressure     pressure  pressure pressure"
+                         "irradiance  irradiance  irradiance  irradiance  irradiance  rainfall   rainfall rainfall";
+  }   */
+  .cards{
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr repeat(3, .4fr);   
+    grid-template-areas: "temperature temperature temperature air       air         air       air      air"
+                         "feels       feels       feels       feels     wind         wind      wind     wind"
+                         "humidity    humidity     humidity   humidity  pressure     pressure  pressure pressure"
+                         "irradiance  irradiance  irradiance  irradiance  irradiance  rainfall   rainfall rainfall";
+  }
+}
+@media (max-width: 500px){
+}
+@media (max-width: 450px){
+  .info-weather .info-Temp{
+    font-size: 19px;
+  }
+}
+@media (max-width: 440px){
+  .cards{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr repeat(4, .45fr);
+    grid-template-areas: "air         air "
+                         "temperature feels"
+                         "humidity    pressure "
+                         "wind        rainfall"
+                         "irradiance  irradiance";
+  }
+  .container.temperature .info-weather img{
+    display: none;
+  }
+  .cards-container .max-widthCard{
+    padding: 90px 0px 20px;
+    /* margin: auto; */
+    width: 70%;
+  }
+  :root{
+    --fs-pCard: 13px;
+    --fs-spanCard: 17px;
+    --fs-info-temp: 30px;
+    --fs-temp-desc: 12px;
+    --fs-icon: 21px;
+  }
+}

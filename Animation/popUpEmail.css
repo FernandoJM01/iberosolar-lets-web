@@ -1,0 +1,56 @@
+.card {
+  width: 300px;
+  height: 220px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  gap: 13px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+}
+.emailMessageContainer{
+  border-radius: 1.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 1rem;
+  height: 40px;
+  width: 100px;
+}
+.emailMessage{
+  align-items: flex-start;
+  gap: 1rem;
+}
+.emailMessage .tick{
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #45bb78;
+}
+.emailMessage .textContainer{
+  flex: 1;
+}
+.emailMessage strong{
+  display: block;
+  font-weight: 500;
+  color: #374151;
+}
+.emailMessage p{
+  margin-top: 0.25rem;
+  font-size: 0.075rem;
+  color: #4b5563;
+}
+.emailMessage button{
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+.emailMessage button:hover{
+  color: #4b5563;
+}
+.emailMessage button svg{
+  height: 1.5rem;
+  width: 1.5rem;
+}
