@@ -12,7 +12,13 @@
    - **Impact**: Inefficient network usage and potential caching issues.
    - **Recommended implementation**: Develop a lightweight API endpoint using Express or FastAPI to serve JSON data.
 
-3. **Global Scope Pollution**
+3. **Global Scope Pollution** ✅ **[RESOLVED]**
    - **Severity**: Low
-   - **Current behavior**: Variables and functions in vanilla scripts are largely in the global scope.
+   - **Current behavior**: (FIXED) Variables and functions in vanilla scripts are largely in the global scope.
    - **Recommended implementation**: Wrap scripts in IIFEs or migrate completely to ES6 modules.
+
+
+4. **Asynchronous DOM Race Conditions** ✅ **[RESOLVED]**
+   - **Severity**: High
+   - **Current behavior**: Scripts were executing immediately and crashing when looking for DOM elements that `modules.js` hadn't injected yet.
+   - **Resolution**: Implemented `startWhenReady` polling and IIFE isolation to ensure rendering waits for the DOM.

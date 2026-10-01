@@ -54,7 +54,9 @@ Modifications to the UI are done directly in the HTML/CSS files. Reusable elemen
 
 ## 12. Technical Debt and Future Improvements
 
-**Update (Phase 1 Complete):**
+**Updates (Phases 1 & UI Modernization Complete):**
+- **UI/UX Modernization**: The 'Equipos' (Sensors) page has been fully redesigned with a responsive CSS Grid, edge-to-edge images, modern typography (Inter/Montserrat), and sleek 'Editorial Overline' categorization badges.
+- **Graphing Bugs Fixed**: Resolved race conditions and rendering initialization bugs (`myChart_Mid.width`) inside Chart.js plugins, and properly sequenced asynchronous DOM loading in `GraphFloating.js`.
 - EmailJS configuration has been encapsulated.
 - Global JavaScript scope has been isolated using IIFEs.
 - Typography has been updated to modern fonts (`Inter` and `Montserrat`) for all sections except the Hero.
