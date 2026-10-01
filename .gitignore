@@ -28,3 +28,8 @@ venv/
 # Temporary scripts (Uncomment the line below if you want to ignore all .py scripts)
 # *.py
 *.py
+
+# Ignored Documentation Files
+docs/TECHNICAL_DEBT.md
+docs/IMPLEMENTATION_PLAN.md
+docs/BEST_PRACTICES_AUDIT.md
