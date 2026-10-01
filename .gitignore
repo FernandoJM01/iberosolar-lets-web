@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+.venv
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary scripts (Uncomment the line below if you want to ignore all .py scripts)
+# *.py
+*.py
