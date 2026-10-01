@@ -53,6 +53,12 @@ See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for full details.
 Modifications to the UI are done directly in the HTML/CSS files. Reusable elements like the navigation bar can be edited in `ModulesHTML/navbar.html`. 
 
 ## 12. Technical Debt and Future Improvements
+
+**Update (Phase 1 Complete):**
+- EmailJS configuration has been encapsulated.
+- Global JavaScript scope has been isolated using IIFEs.
+- Typography has been updated to modern fonts (`Inter` and `Montserrat`) for all sections except the Hero.
+
 - Migration to a modern framework (e.g., React, Vue) or static site generator (e.g., Astro, Next.js) to avoid layout shifts caused by client-side `fetch` of HTML partials.
 - Implementation of a real REST API instead of polling `data-floating2.txt`.
 - Removal of unused dependencies (jQuery, if possible, as it's only used for the carousel and navbar toggling).

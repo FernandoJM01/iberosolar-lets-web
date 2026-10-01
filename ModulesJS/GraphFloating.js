@@ -1,3 +1,4 @@
+(function() {
 let lastModifiedTime = 0;
 
 let weather = {
@@ -99,7 +100,7 @@ function parseWeatherData(text, weather, weather_main) {
 }
 
 // Check for updates and update weather data if modified
-async function checkForUpdate(file_name, weather, weather_main, lastModifiedTime) {
+async function checkForUpdate(file_name, weather, weather_main) {
   const response = await fetch(file_name, { method: 'HEAD' });
   const modifiedTime = response.headers.get('last-modified');
   if (!modifiedTime) return;
@@ -212,7 +213,7 @@ function updateMidCanva(weather_main){
   ctx.save();
   const xCenterMid = chart.getDatasetMeta(0).data[0].x;
   const yCenterMid = chart.getDatasetMeta(0).data[0].y;
-  let canvasWidth = myChart_Mid.width;
+  let canvasWidth = chart.width;
   let textWidth;
   const fontSize = xCenterMid * .2666666;
   // AirQuality Letters
@@ -220,13 +221,13 @@ function updateMidCanva(weather_main){
   if(airQualitys != 'Extremadamente Mala'){
     ctx.font = 'italic 700 ' + fontSize + 'px "Roboto", sans-serif';
     textWidth = ctx.measureText(airQualitys).width;
-    ctx.fillText(airQualitys, (myChart_Mid.width - textWidth) / 2, yCenterMid * 0.684210);
+    ctx.fillText(airQualitys, (chart.width - textWidth) / 2, yCenterMid * 0.684210);
   }else{
     ctx.font = 'italic 700 ' + (fontSize - 7) + 'px "Roboto", sans-serif';
     textWidth = ctx.measureText('Extremadamente').width;
-    ctx.fillText('Extremadamente', (myChart_Mid.width - textWidth) / 2, yCenterMid * 0.5684);
+    ctx.fillText('Extremadamente', (chart.width - textWidth) / 2, yCenterMid * 0.5684);
     textWidth = ctx.measureText('Mala').width;
-    ctx.fillText('Mala', (myChart_Mid.width - textWidth) / 2, yCenterMid * 0.8);
+    ctx.fillText('Mala', (chart.width - textWidth) / 2, yCenterMid * 0.8);
   }
   ctx.restore();       
   }
@@ -488,7 +489,7 @@ function drawCharts(weather_main){
         ctx.save();
         const xCenterMid = chart.getDatasetMeta(0).data[0].x;
         const yCenterMid = chart.getDatasetMeta(0).data[0].y;
-        let canvasWidth = myChart_Mid.width;
+        let canvasWidth = chart.width;
         let textWidth;
         // let percentaje = xCenterMid / 90;
         // let xMid = calcXposition_MidCircle(airQualitys) * percentaje;
@@ -500,13 +501,13 @@ function drawCharts(weather_main){
           textWidth = ctx.measureText(airQualitys).width;
           // ctx.font = 'italic 700 24px "Roboto", sans-serif';
           //ctx.fillText(airQualitys, xMid, yCenterMid * 0.684210);
-          ctx.fillText(airQualitys, (myChart_Mid.width - textWidth) / 2, yCenterMid * 0.684210);
+          ctx.fillText(airQualitys, (chart.width - textWidth) / 2, yCenterMid * 0.684210);
         }else{
           ctx.font = 'italic 700 ' + (fontSize - 7) + 'px "Roboto", sans-serif';
           textWidth = ctx.measureText('Extremadamente').width;
-          ctx.fillText('Extremadamente', (myChart_Mid.width - textWidth) / 2, yCenterMid * 0.5684);
+          ctx.fillText('Extremadamente', (chart.width - textWidth) / 2, yCenterMid * 0.5684);
           textWidth = ctx.measureText('Mala').width;
-          ctx.fillText('Mala', (myChart_Mid.width - textWidth) / 2, yCenterMid * 0.8);
+          ctx.fillText('Mala', (chart.width - textWidth) / 2, yCenterMid * 0.8);
         }
         ctx.restore();       
       },
@@ -629,7 +630,15 @@ function drawCharts(weather_main){
 
 
 // updateWeatherData(file_name, weather, weather_main);
-updateWeatherData2(file_name,  null, weather_main);
 
-// Schedule periodic check for updates
-checkAndScheduleUpdates(file_name, null, weather_main, lastModifiedTime);
+function startWhenReady() {
+  if (document.getElementById('myChart_Back')) {
+    updateWeatherData2(file_name, null, weather_main);
+    checkAndScheduleUpdates(file_name, null, weather_main);
+  } else {
+    setTimeout(startWhenReady, 100);
+  }
+}
+startWhenReady();
+
+})();

@@ -1,3 +1,5 @@
+(function() {
+  emailjs.init('WfqQfI6s1NJIuDhf3');
 const form = document.querySelector("form");
 const name = document.getElementById("name");
 const email = document.getElementById("email");
@@ -83,3 +85,5 @@ document.getElementById('form')
     return false;
   }
 });
+
+})();
